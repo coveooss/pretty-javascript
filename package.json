@@ -1,0 +1,26 @@
+{
+  "name": "pretty-javascript",
+  "version": "0.0.1",
+  "description": "Coveo pure javascript linter",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/coveo/pretty-javascript.git"
+  },
+  "keywords": [
+    "linter",
+    "eslint",
+    "javascript",
+    "js",
+    "lint"
+  ],
+  "author": "Coveo",
+  "license": "Apache-2.0",
+  "bugs": {
+    "url": "https://github.com/coveo/pretty-javascript/issues"
+  },
+  "homepage": "https://github.com/coveo/pretty-javascript#readme"
+}

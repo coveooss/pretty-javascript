@@ -26,8 +26,7 @@ Add pretty-javascript to your gulp pipeline
   gulp.task('linter', function() {
     gulp
       .src('src/**/*.js')
-      .pipe(lint())
-      .pipe(gulp.dest('src'));
+      .pipe(lint());
   });
 ```
 

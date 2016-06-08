@@ -1,0 +1,9 @@
+{
+  "extends": "coveo",
+  "env": {
+    "node": "true"
+  },
+  "rules": {
+
+  }
+}

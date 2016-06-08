@@ -1,0 +1,25 @@
+language: node_js
+cache:
+  directories:
+  - node_modules
+notifications:
+  email:
+    on_success: change
+    on_failure: always
+node_js:
+- '6'
+- '5'
+- '4'
+- '0.12'
+- '0.10'
+env:
+  global:
+    - COMMIT_AUTHOR_EMAIL: "sandbox_SF@coveo.com"
+deploy:
+  provider: npm
+  email: "sandbox_SF@coveo.com"
+  api_key:
+    secure: PtH/rrpOXpgMFqci61AFLm5pgy7HffoB768uSlO4iMXu+qlFQAfOm9LloXoA0ZWFt1ycNbPbX9wDY+BVberayufOb7hvItCwk+HVz8ayHf+uJDzuvjD4g4FOVuF1w265eWvDQwJ+1h5CivmjkE891BHkzucQ/+STTE3BacuvLa/kAHOxukK8Xghmk3/McDF4NwXfAbQVeOuyURvBLBWJtF9hcZ+tdPIW6jx5wewVcxS1CCvRN+JkXKzqkkfAeagFmh+uicCXRqrXycPFthGuOapywoz+7cOUisa5IInAZjHKpNSeK62VEEy/sVW4vUD1IZC5B+5HF9SjP/8u95eJ7E9E8ruVxUgSs1z37VkcikDBNAavF9uXlSbEx7tU5hPFlmXW95m7nojnvcfuQtbUGpGOctWXrxNGf7m6XBz8tYns4ylD6UDQwSnxbI1UN3cyAfrtsFpcWMz8k8Ms6pRy/g7YUGszSoACMt+LT18QZFxwv7LOWaWVKYi8JbVcAE+AK5NUY5FUwxPH2oWEOuPxzeciDOcp6DlCOBy3q+PoDFNzUO7wVN6z33lda2qP3bPPxw2o53L5TWlZKbE1qwMyEbOaMtxQm6YSnqBz3Qy0tkP/RiqY+tyNuI8sbxBFEZH9mWyHY6yNRzIWGJ53LEWwqZ+zM8VaEBWmsjMs4GJOgB0=
+  on:
+    tags: true
+    repo: coveo/pretty-javascript

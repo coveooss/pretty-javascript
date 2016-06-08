@@ -11,16 +11,38 @@
     "url": "git+https://github.com/coveo/pretty-javascript.git"
   },
   "keywords": [
-    "linter",
+    "coveo",
+    "code",
+    "quality",
+    "lint",
     "eslint",
-    "javascript",
-    "js",
-    "lint"
+    "validate",
+    "checker",
+    "check",
+    "enforce",
+    "verify",
+    "hint",
+    "style",
+    "code",
+    "style",
+    "linter",
+    "jshint",
+    "jscs",
+    "jslint"
   ],
   "author": "Coveo",
   "license": "Apache-2.0",
   "bugs": {
     "url": "https://github.com/coveo/pretty-javascript/issues"
   },
-  "homepage": "https://github.com/coveo/pretty-javascript#readme"
+  "homepage": "https://github.com/coveo/pretty-javascript#readme",
+  "dependencies": {
+    "eslint-config-coveo": "0.0.6",
+    "gulp-eslint": "^2.0.0",
+    "lazypipe": "^1.0.1"
+  },
+  "devDependencies": {
+    "ava": "^0.15.2",
+    "gulp": "^3.9.1"
+  }
 }

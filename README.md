@@ -21,9 +21,9 @@ Install `pretty-javascript`
 Add pretty-javascript to your gulp pipeline
 
 ```js
-  const lint = require('pretty-javascript');
+  var lint = require('pretty-javascript');
 
-  gulp.task('linter', () => {
+  gulp.task('linter', function() {
     gulp
       .src('src/**/*.js')
       .pipe(lint())
@@ -32,21 +32,6 @@ Add pretty-javascript to your gulp pipeline
 ```
 
 Extends coveo rules in your `.eslintrc` file. Example [here](https://github.com/coveo/eslint-config-coveo#usage).
-
-### API
-
-You can use the `failOnError` or `failAfterError` flag
-
-```js
-  const lint = require('pretty-javascript');
-
-  gulp.task('linter', () => {
-    gulp
-      .src('src/**/*.js')
-      .pipe(lint({failOnError: true}))
-      .pipe(gulp.dest('src'));
-  });
-```
 
 ## Example
 

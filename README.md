@@ -12,7 +12,7 @@ files with eslint.
 
 ## Usage
 
-Install `pretty-javascript`
+Install `pretty-javascript` with `npm`
 
 ```sh
   npm install --save-dev pretty-javascript

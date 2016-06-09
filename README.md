@@ -36,11 +36,4 @@ Extends coveo rules in your `.eslintrc` file. Example [here](https://github.com/
 
 Watch for linter errors/warnings
 
-```sh
-/PATH/TO/FILE.js
-  11:18  error  Expected '===' and instead saw '=='  eqeqeq
-  11:47  error  Expected '===' and instead saw '=='  eqeqeq
-  11:68  error  Expected '===' and instead saw '=='  eqeqeq
-
-  ✖ 3 problems (3 errors, 0 warnings)
-```
+![linter](./image/linter-formatter.png)

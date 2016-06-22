@@ -8,7 +8,8 @@ files with eslint.
 [![devDependency Status](https://david-dm.org/coveo/pretty-javascript/dev-status.svg)](https://david-dm.org/coveo/pretty-javascript#info=devDependencies)
 [![GitHub release](https://img.shields.io/github/release/coveo/pretty-javascript.svg)](https://github.com/coveo/pretty-javascript/releases/)
 [![version](https://img.shields.io/npm/v/pretty-javascript.svg?maxAge)](https://www.npmjs.org/package/pretty-javascript)
-[![npm](https://img.shields.io/npm/dm/pretty-javascript.svg?maxAge=2592000)](https://www.npmjs.org/package/pretty-javascript)
+[![npm](https://img.shields.io/npm/dt/pretty-javascript.svg)](https://www.npmjs.org/package/pretty-javascript)
+[![npm](https://img.shields.io/npm/dm/pretty-javascript.svg)](https://www.npmjs.org/package/pretty-javascript)
 [![license](https://img.shields.io/github/license/coveo/pretty-javascript.svg?maxAge=2592000)](https://github.com/coveo/pretty-javascript/blob/master/LICENSE)
 
 ## Usage

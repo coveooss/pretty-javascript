@@ -9,6 +9,7 @@ files with eslint.
 [![GitHub release](https://img.shields.io/github/release/coveo/pretty-javascript.svg)](https://github.com/coveo/pretty-javascript/releases/)
 [![version](https://img.shields.io/npm/v/pretty-javascript.svg?maxAge)](https://www.npmjs.org/package/pretty-javascript)
 [![npm](https://img.shields.io/npm/dm/pretty-javascript.svg?maxAge=2592000)](https://www.npmjs.org/package/pretty-javascript)
+[![license](https://img.shields.io/github/license/coveo/pretty-javascript.svg?maxAge=2592000)](https://github.com/coveo/pretty-javascript/blob/master/LICENSE)
 
 ## Usage
 
@@ -37,3 +38,7 @@ Extends coveo rules in your `.eslintrc` file. Example [here](https://github.com/
 Watch for linter errors/warnings
 
 ![linter](./image/linter-formatter.png)
+
+[![forthebadge](http://forthebadge.com/images/badges/built-with-love.svg)](http://forthebadge.com)
+[![forthebadge](http://forthebadge.com/images/badges/built-by-developers.svg)](http://forthebadge.com)
+[![forthebadge](http://forthebadge.com/images/badges/uses-js.svg)](http://forthebadge.com)

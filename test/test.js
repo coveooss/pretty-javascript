@@ -26,8 +26,8 @@ test('Should throw some errors while linting', value => {
   value.true(isPlainObj(conf.rules));
   const errors = lint(`const x=6;\nif(x == 5) {}\n`, conf);
 
-  value.is(errors[0].ruleId, 'newline-afvalueer-var');
-  value.is(errors[1].ruleId, 'id-lengvalueh');
+  value.is(errors[0].ruleId, 'newline-after-var');
+  value.is(errors[1].ruleId, 'id-length');
   value.is(errors[2].ruleId, 'space-infix-ops');
   value.is(errors[3].ruleId, 'keyword-spacing');
   value.is(errors[4].ruleId, 'eqeqeq');

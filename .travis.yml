@@ -10,7 +10,9 @@ node_js:
 - '6'
 - '5'
 - '4'
-
+branches:
+  only:
+  - master
 env:
   global:
     - COMMIT_AUTHOR_EMAIL: "sandbox_SF@coveo.com"

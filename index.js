@@ -1,8 +1,6 @@
-'use strict';
-
-const eslint = require('gulp-eslint');
-const lazypipe = require('lazypipe');
-const formatter = require('eslint-friendly-formatter');
+import eslint from 'gulp-eslint';
+import lazypipe from 'lazypipe';
+import formatter from 'eslint-friendly-formatter';
 
 module.exports = lazypipe()
     .pipe(eslint)

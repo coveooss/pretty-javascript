@@ -10,7 +10,7 @@ import conf from '../.eslintrc.json';
  *
  * @param  {String} str           Text to lint
  * @param  {Object} configuration ESLint configuration file
- * @return {Array}                ESLint errors
+ * @return {Object[]}             ESLint errors
  */
 var lint = function(str, configuration) {
   const linter = new eslint.CLIEngine({
@@ -21,9 +21,10 @@ var lint = function(str, configuration) {
   return linter.executeOnText(str).results[0].messages;
 };
 
-test('Should throw some errors while linting', value => {
-  value.true(isPlainObj(conf));
-  value.true(isPlainObj(conf.rules));
+/**
+ * `Eslint` test
+ */
+test('It should throw 6 errors', value => {
   const errors = lint(`const x=6;\nif(x == 5) {}\n`, conf);
 
   value.is(errors[0].ruleId, 'newline-after-var');
@@ -32,4 +33,12 @@ test('Should throw some errors while linting', value => {
   value.is(errors[3].ruleId, 'keyword-spacing');
   value.is(errors[4].ruleId, 'eqeqeq');
   value.is(errors[5].ruleId, 'no-empty');
+});
+
+/**
+ * Testing if an object is a true plain object
+ */
+test('It should be a javascript plain object', value => {
+  value.true(isPlainObj(conf));
+  value.true(isPlainObj(conf.rules));
 });

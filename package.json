@@ -4,7 +4,8 @@
   "description": "Coveo pure javascript linter",
   "main": "index.js",
   "scripts": {
-    "test": "ava"
+    "test": "ava",
+    "commit": "git add .; git cz; git push"
   },
   "repository": {
     "type": "git",
@@ -44,8 +45,14 @@
   },
   "devDependencies": {
     "ava": "^0.15.2",
+    "cz-conventional-changelog": "^1.1.6",
     "eslint": "^3.0.0",
     "is-plain-obj": "^1.1.0",
     "temp-write": "^2.1.0"
+  },
+  "config": {
+    "commitizen": {
+      "path": "./node_modules/cz-conventional-changelog"
+    }
   }
 }

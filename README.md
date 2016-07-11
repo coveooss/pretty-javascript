@@ -6,6 +6,7 @@ files with eslint.
 [![Build Status](https://travis-ci.org/coveo/pretty-javascript.svg?branch=master)](https://travis-ci.org/coveo/pretty-javascript)
 [![Dependency Status](https://david-dm.org/coveo/pretty-javascript.svg)](https://david-dm.org/coveo/pretty-javascript)
 [![devDependency Status](https://david-dm.org/coveo/pretty-javascript/dev-status.svg)](https://david-dm.org/coveo/pretty-javascript#info=devDependencies)
+[![Commitizen friendly](https://img.shields.io/badge/commitizen-friendly-brightgreen.svg)](http://commitizen.github.io/cz-cli/)
 [![GitHub release](https://img.shields.io/github/release/coveo/pretty-javascript.svg)](https://github.com/coveo/pretty-javascript/releases/)
 [![version](https://img.shields.io/npm/v/pretty-javascript.svg?maxAge)](https://www.npmjs.org/package/pretty-javascript)
 [![npm](https://img.shields.io/npm/dt/pretty-javascript.svg)](https://www.npmjs.org/package/pretty-javascript)

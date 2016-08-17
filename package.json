@@ -38,7 +38,7 @@
   },
   "homepage": "https://github.com/coveo/pretty-javascript#readme",
   "dependencies": {
-    "eslint-config-coveo": "^0.0.9",
+    "eslint-config-coveo": "^0.1.2",
     "eslint-friendly-formatter": "^2.0.6",
     "gulp-eslint": "^3.0.0",
     "lazypipe": "^1.0.1"

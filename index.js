@@ -1,4 +1,3 @@
-'use strict';
 const eslint = require('gulp-eslint');
 const lazypipe = require('lazypipe');
 const formatter = require('eslint-friendly-formatter');

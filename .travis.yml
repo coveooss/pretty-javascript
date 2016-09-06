@@ -13,7 +13,7 @@ node_js:
 branches:
   only:
   - master
-  - /v(\d+.){2}\d+/
+  - /(\d+.){2}\d+/
 env:
   global:
     - COMMIT_AUTHOR_EMAIL: "sandbox_SF@coveo.com"

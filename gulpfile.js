@@ -48,7 +48,7 @@ gulp.task('commit-changelog', () => {
   return gulp
     .src('CHANGELOG.md')
     .pipe(git.add())
-    .pipe(git.commit(`docs(CHANGELOG): bumping version to ${getPackageVersion}`));
+    .pipe(git.commit(`docs(CHANGELOG): bumping version to ${getPackageVersion()}`));
 });
 
 gulp.task('push-changes', done => {
@@ -58,7 +58,7 @@ gulp.task('push-changes', done => {
 gulp.task('create-new-tag', done => {
   const version = getPackageVersion();
 
-  git.tag(version, `Created Tag for version: ${version}`, err => {
+  git.tag(`v${version}`, `Created Tag for version: ${version}`, err => {
     if (err) {
       return done(err);
     }

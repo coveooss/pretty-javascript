@@ -1,3 +1,15 @@
+<a name="0.1.6"></a>
+## [0.1.6](https://github.com/coveo/pretty-javascript/compare/v0.1.5...v0.1.6) (2016-09-08)
+
+
+### Bug Fixes
+
+* **gulpfile:** fix commit task ([a589b03](https://github.com/coveo/pretty-javascript/commit/a589b03))
+* **rules:** remove unneeded rule ([281bb2c](https://github.com/coveo/pretty-javascript/commit/281bb2c))
+* **travis:** fix travis branch build configuration ([19d2d55](https://github.com/coveo/pretty-javascript/commit/19d2d55))
+
+
+
 <a name="0.1.5"></a>
 ## [0.1.5](https://github.com/coveo/pretty-javascript/compare/0.1.4...v0.1.5) (2016-09-06)
 

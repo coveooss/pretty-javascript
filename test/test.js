@@ -2,7 +2,10 @@ import test from 'ava';
 import eslint from 'eslint';
 import tempWrite from 'temp-write';
 import isPlainObj from 'is-plain-obj';
-import conf from '../.eslintrc.json';
+import fs from 'fs';
+const conf = (() => {
+  return JSON.parse(fs.readFileSync('../.eslintrc'));
+})();
 
 /**
  * lint - Lint code with `ESLint`
@@ -26,13 +29,13 @@ const lint = (str, configuration) => {
 test('It should throw errors', assert => {
   const errors = lint(`const x=6;\nif(x == 5) {}\n`, conf);
 
-  assert.is(errors[0].ruleId, 'strict');
-  assert.is(errors[1].ruleId, 'newline-after-var');
-  assert.is(errors[2].ruleId, 'id-length');
-  assert.is(errors[3].ruleId, 'space-infix-ops');
-  assert.is(errors[4].ruleId, 'keyword-spacing');
-  assert.is(errors[5].ruleId, 'eqeqeq');
-  assert.is(errors[6].ruleId, 'no-empty');
+  // assert.is(errors[0].ruleId, 'strict');
+  assert.is(errors[0].ruleId, 'newline-after-var');
+  assert.is(errors[1].ruleId, 'id-length');
+  assert.is(errors[2].ruleId, 'space-infix-ops');
+  assert.is(errors[3].ruleId, 'keyword-spacing');
+  assert.is(errors[4].ruleId, 'eqeqeq');
+  assert.is(errors[5].ruleId, 'no-empty');
 });
 
 /**

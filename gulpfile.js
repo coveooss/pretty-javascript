@@ -10,7 +10,7 @@ const runSequence = require('run-sequence');
 // multiple calls so the version number won't be updated
 const getPackageVersion = () => {
   return JSON.parse(fs.readFileSync('./package.json', 'utf-8')).version;
-}
+};
 
 gulp.task('changelog', () => {
   return gulp
@@ -44,9 +44,9 @@ gulp.task('bump-version', () => {
     .pipe(gulp.dest('./'));
 });
 
-gulp.task('commit-changelog', () => {
+gulp.task('commit-changes', () => {
   return gulp
-    .src('CHANGELOG.md')
+    .src('.')
     .pipe(git.add())
     .pipe(git.commit(`docs(CHANGELOG): bumping version to ${getPackageVersion()}`));
 });
@@ -71,7 +71,7 @@ gulp.task('create-new-tag', done => {
 gulp.task('release', done => {
   /* eslint no-console:"off" */
   runSequence(
-    'bump-version', 'changelog', 'commit-changelog', 'push-changes', 'create-new-tag', 'github-release', err => {
+    'bump-version', 'changelog', 'commit-changes', 'push-changes', 'create-new-tag', 'github-release', err => {
       if (err) {
         console.error(err.message);
       } else {

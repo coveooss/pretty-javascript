@@ -4,7 +4,6 @@ import tempWrite from 'temp-write';
 import isPlainObj from 'is-plain-obj';
 import conf from '../.eslintrc.json';
 
-
 /**
  * lint - Lint code with `ESLint`
  *
@@ -12,7 +11,7 @@ import conf from '../.eslintrc.json';
  * @param  {Object} configuration ESLint configuration file
  * @return {Object[]}             ESLint errors
  */
-var lint = function(str, configuration) {
+const lint = (str, configuration) => {
   const linter = new eslint.CLIEngine({
     useEslintrc: false,
     configFile: tempWrite.sync(JSON.stringify(configuration))
@@ -24,21 +23,22 @@ var lint = function(str, configuration) {
 /**
  * `Eslint` test
  */
-test('It should throw 6 errors', value => {
+test('It should throw errors', assert => {
   const errors = lint(`const x=6;\nif(x == 5) {}\n`, conf);
 
-  value.is(errors[0].ruleId, 'newline-after-var');
-  value.is(errors[1].ruleId, 'id-length');
-  value.is(errors[2].ruleId, 'space-infix-ops');
-  value.is(errors[3].ruleId, 'keyword-spacing');
-  value.is(errors[4].ruleId, 'eqeqeq');
-  value.is(errors[5].ruleId, 'no-empty');
+  assert.is(errors[0].ruleId, 'strict');
+  assert.is(errors[1].ruleId, 'newline-after-var');
+  assert.is(errors[2].ruleId, 'id-length');
+  assert.is(errors[3].ruleId, 'space-infix-ops');
+  assert.is(errors[4].ruleId, 'keyword-spacing');
+  assert.is(errors[5].ruleId, 'eqeqeq');
+  assert.is(errors[6].ruleId, 'no-empty');
 });
 
 /**
  * Testing if an object is a true plain object
  */
-test('It should be a javascript plain object', value => {
-  value.true(isPlainObj(conf));
-  value.true(isPlainObj(conf.rules));
+test('It should be a javascript plain object', assert => {
+  assert.true(isPlainObj(conf));
+  assert.true(isPlainObj(conf.rules));
 });

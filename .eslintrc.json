@@ -1,12 +1,6 @@
 {
   "extends": "coveo",
-  "env": {
-    "node": true
-  },
-  "parserOptions": {
-    "sourceType": "module"
-  },
   "rules": {
-    "arrow-body-style": "off"
+    
   }
 }

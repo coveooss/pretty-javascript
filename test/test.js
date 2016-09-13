@@ -28,14 +28,15 @@ const lint = (str, configuration) => {
  */
 test('It should throw errors', assert => {
   const errors = lint(`const x=6;\nif(x == 5) {}\n`, conf);
-
-  assert.is(errors[0].ruleId, 'strict');
-  assert.is(errors[1].ruleId, 'newline-after-var');
-  assert.is(errors[2].ruleId, 'id-length');
-  assert.is(errors[3].ruleId, 'space-infix-ops');
-  assert.is(errors[4].ruleId, 'keyword-spacing');
-  assert.is(errors[5].ruleId, 'eqeqeq');
-  assert.is(errors[6].ruleId, 'no-empty');
+  const rules = [
+    'strict', 'semi', 'newline-after-var', 'no-var', 'class-methods-use-this', 'symbol-description', 'prefer-numeric-literals', 'line-comment-position', 'lines-around-directive', 'id-length', 'space-infix-ops', 'keyword-spacing', 'eqeqeq', 'no-empty'
+  ];
+  errors.forEach(error => {
+    const id = rules.find(rule => {
+      return rule === error.ruleId;
+    });
+    assert.is(error.ruleId, id);
+  });
 });
 
 /**

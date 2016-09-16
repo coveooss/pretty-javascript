@@ -6,69 +6,75 @@ const gutil = require('gulp-util');
 const fs = require('fs');
 const git = require('gulp-git');
 const runSequence = require('run-sequence');
+const minimist = require('minimist');
 // We parse the json file instead of using require because require caches
 // multiple calls so the version number won't be updated
-const getPackageVersion = () => {
-  return JSON.parse(fs.readFileSync('./package.json', 'utf-8')).version;
+const version = () => JSON.parse(fs.readFileSync('./package.json', 'utf8')).version
+const defaults = {
+  string: 'semver',
+  string: 'preset',
+  string: 'token',
+  default: {
+    semver: process.env.SEMVER || 'patch' ,
+    preset: process.env.PRESET || 'angular',
+    token:  process.env.CONVENTIONAL_GITHUB_RELEASER_TOKEN || ''
+  }
 };
+const options = minimist(process.argv.slice(2), defaults);
 
-gulp.task('changelog', () => {
-  return gulp
+gulp.task('changelog', () =>
+  gulp
     .src('CHANGELOG.md', {
       buffer: false
     })
     .pipe(conventionalChangelog({
-      preset: 'angular'
+      preset: options.preset
     }))
-    .pipe(gulp.dest('./'));
-});
+    .pipe(gulp.dest('./'))
+);
 
-gulp.task('github-release', done => {
+gulp.task('github-release', done =>
   conventionalGithubReleaser({
     type: 'oauth',
-    // token only has public repos
-    token: process.env.CONVENTIONAL_GITHUB_RELEASER_TOKEN
+    token: options.token
   }, {
-    preset: 'angular'
-  }, done);
-});
+    preset: options.preset
+  }, done)
+);
 
-gulp.task('bump-version', () => {
-  // use minimist (https://npmjs.com/package/minimist) to determine with a
-  // command argument whether you are doing a 'major', 'minor' or a 'patch'
-  return gulp
+gulp.task('bump-version', () =>
+  gulp
     .src('package.json')
     .pipe(bump({
-      type: 'patch'
+      type: options.semver
     }).on('error', gutil.log))
-    .pipe(gulp.dest('./'));
-});
+    .pipe(gulp.dest('./'))
+);
 
-gulp.task('commit-changes', () => {
-  return gulp
+gulp.task('commit-changes', () =>
+  gulp
     .src('.')
     .pipe(git.add())
-    .pipe(git.commit(`docs(CHANGELOG): bumping version to ${getPackageVersion()}`));
-});
+    .pipe(git.commit(`docs(CHANGELOG): bumping version to ${version()}`))
+);
 
-gulp.task('push-changes', done => {
-  git.push('origin', 'master', done);
-});
+gulp.task('push-changes', done =>
+  git.push('origin', 'master', done)
+);
 
-gulp.task('create-new-tag', done => {
-  const version = getPackageVersion();
-
-  git.tag(`v${version}`, `Created Tag for version: ${version}`, err => {
+gulp.task('create-new-tag', done =>
+  git.tag(`v${version()}`, `Created Tag for version: ${version()}`, err => {
     if (err) {
       return done(err);
     }
     git.push('origin', 'master', {
       args: '--tags'
     }, done);
-  });
-});
+  })
+);
 
-gulp.task('release', done => {
+gulp.task('release', done =>
+
   /* eslint no-console:"off" */
   runSequence(
     'bump-version', 'changelog', 'commit-changes', 'push-changes', 'create-new-tag', 'github-release', err => {
@@ -78,5 +84,6 @@ gulp.task('release', done => {
         console.log('RELEASE FINISHED SUCCESSFULLY');
       }
       done(err);
-    });
-});
+    }
+  )
+);

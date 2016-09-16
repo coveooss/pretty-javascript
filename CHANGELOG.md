@@ -1,3 +1,24 @@
+<a name="1.0.0"></a>
+# [1.0.0](https://github.com/coveo/pretty-javascript/compare/v0.1.6...v1.0.0) (2016-09-16)
+
+
+### Bug Fixes
+
+* **codeclimate:** fix configuration file ([97fc53c](https://github.com/coveo/pretty-javascript/commit/97fc53c))
+* **travis:** fix the build ([21bb820](https://github.com/coveo/pretty-javascript/commit/21bb820))
+
+
+### Features
+
+* **npm:** 3 new commands for package release ([e5a6355](https://github.com/coveo/pretty-javascript/commit/e5a6355))
+
+
+### BREAKING CHANGES
+
+* npm: `npm run release` became `npm run release-patch`.
+
+
+
 <a name="0.1.6"></a>
 ## [0.1.6](https://github.com/coveo/pretty-javascript/compare/v0.1.5...v0.1.6) (2016-09-08)
 

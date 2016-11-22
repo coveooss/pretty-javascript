@@ -7,6 +7,7 @@ const fs = require('fs');
 const git = require('gulp-git');
 const runSequence = require('run-sequence');
 const minimist = require('minimist');
+const prettyJavascript = require('./index');
 // We parse the json file instead of using require because require caches
 // multiple calls so the version number won't be updated
 const version = () => JSON.parse(fs.readFileSync('./package.json', 'utf8')).version
@@ -87,3 +88,13 @@ gulp.task('release', done =>
     }
   )
 );
+
+gulp.task('lint', () => {
+  console.log(process.env.ESLINT_FAIL_AFTER_ERROR);
+
+  return gulp
+    .src('test/*.js')
+    .pipe(prettyJavascript());
+});
+
+gulp.task('that', ['lint', 'commit-changes']);

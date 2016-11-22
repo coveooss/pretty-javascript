@@ -2,10 +2,12 @@ import test from 'ava';
 import eslint from 'eslint';
 import tempWrite from 'temp-write';
 import isPlainObj from 'is-plain-obj';
+import gulp from 'gulp';
+import prettyJavascript from '../index';
 import fs from 'fs';
-const conf = (() => {
-  return JSON.parse(fs.readFileSync('../.eslintrc'));
-})();
+const conf = (() =>
+  JSON.parse(fs.readFileSync('../.eslintrc'))
+)();
 
 /**
  * lint - Lint code with `ESLint`
@@ -29,13 +31,17 @@ const lint = (str, configuration) => {
 test('It should throw errors', assert => {
   const errors = lint(`const x=6;\nif(x == 5) {}\n`, conf);
   const rules = [
-    'strict', 'semi', 'newline-after-var', 'no-var', 'class-methods-use-this', 'symbol-description', 'prefer-numeric-literals', 'line-comment-position', 'lines-around-directive', 'id-length', 'space-infix-ops', 'keyword-spacing', 'eqeqeq', 'no-empty'
+    'strict', 'semi', 'newline-after-var', 'no-var', 'class-methods-use-this', 'symbol-description',
+    'prefer-numeric-literals', 'line-comment-position', 'lines-around-directive', 'id-length',
+    'space-infix-ops', 'keyword-spacing', 'eqeqeq', 'no-empty'
   ];
-  errors.forEach(error => {
-    const id = rules.find(rule => {
-      return rule === error.ruleId;
-    });
-    assert.is(error.ruleId, id);
+
+  errors.forEach(err => {
+    const id = rules.find(rule =>
+      rule === err.ruleId
+    );
+
+    assert.is(err.ruleId, id);
   });
 });
 
@@ -45,4 +51,12 @@ test('It should throw errors', assert => {
 test('It should be a javascript plain object', assert => {
   assert.true(isPlainObj(conf));
   assert.true(isPlainObj(conf.rules));
+});
+
+
+test('It should parse the test file and lint it', assert => {
+  gulp
+    .src('test/*.js')
+    .pipe(prettyJavascript());
+  // assert.pass();
 });

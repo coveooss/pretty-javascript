@@ -4,7 +4,7 @@ import tempWrite from 'temp-write';
 import isPlainObj from 'is-plain-obj';
 import fs from 'fs';
 const conf = (() =>
-  JSON.parse(fs.readFileSync('../.eslintrc'))
+  JSON.parse(fs.readFileSync(`${__dirname}/../.eslintrc`))
 )();
 
 /**

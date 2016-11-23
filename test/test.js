@@ -2,8 +2,6 @@ import test from 'ava';
 import eslint from 'eslint';
 import tempWrite from 'temp-write';
 import isPlainObj from 'is-plain-obj';
-import gulp from 'gulp';
-import prettyJavascript from '../index';
 import fs from 'fs';
 const conf = (() =>
   JSON.parse(fs.readFileSync('../.eslintrc'))
@@ -53,10 +51,3 @@ test('It should be a javascript plain object', assert => {
   assert.true(isPlainObj(conf.rules));
 });
 
-
-test('It should parse the test file and lint it', assert => {
-  gulp
-    .src('test/*.js')
-    .pipe(prettyJavascript());
-  // assert.pass();
-});

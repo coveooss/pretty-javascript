@@ -4,8 +4,6 @@ Pretty-JavaScript is Coveo's JavaScript linter used to lint pure JavaScript
 files with eslint.
 
 [![Build Status](https://travis-ci.org/coveo/pretty-javascript.svg?branch=master)](https://travis-ci.org/coveo/pretty-javascript)
-[![Dependency Status](https://david-dm.org/coveo/pretty-javascript.svg)](https://david-dm.org/coveo/pretty-javascript)
-[![devDependency Status](https://david-dm.org/coveo/pretty-javascript/dev-status.svg)](https://david-dm.org/coveo/pretty-javascript#info=devDependencies)
 [![Commitizen friendly](https://img.shields.io/badge/commitizen-friendly-brightgreen.svg)](http://commitizen.github.io/cz-cli/)
 [![GitHub release](https://img.shields.io/github/release/coveo/pretty-javascript.svg)](https://github.com/coveo/pretty-javascript/releases/)
 [![version](https://img.shields.io/npm/v/pretty-javascript.svg?maxAge)](https://www.npmjs.org/package/pretty-javascript)
@@ -33,16 +31,38 @@ Add pretty-javascript to your gulp pipeline
   });
 ```
 
-Add a global environment variable to your system to allow PrettyJavascript to fail *on* or *after* lint errors
+Add a global environment variable to your system to allow PrettyJavascript to fail *on* or *after* lint errors. By default if there's no variable specified, `ESLINT_FAIL_ON_ERROR` and `ESLINT_FAIL_AFTER_ERROR` will fallback to *false*.
+
+OSX/LINUX:
 
 ```sh
-export ESLINT_FAIL_ON_ERROR=true || false
+export ESLINT_FAIL_ON_ERROR=true
+  or
+export ESLINT_FAIL_ON_ERROR=false (by default)
 ```
 
 or
 
 ```sh
-export ESLINT_FAIL_AFTER_ERROR=true || false
+export ESLINT_FAIL_AFTER_ERROR=true
+  or
+export ESLINT_FAIL_AFTER_ERROR=false (by default)
+```
+
+WINDOWS:
+
+```dos
+SET ESLINT_FAIL_ON_ERROR=true
+  or
+SET ESLINT_FAIL_ON_ERROR=false (by default)
+```
+
+or
+
+```dos
+SET ESLINT_FAIL_AFTER_ERROR=true
+  or
+SET ESLINT_FAIL_AFTER_ERROR=false (by default)
 ```
 
 note: if both variables are set to true, PrettyJavascript will always fail *on* error.

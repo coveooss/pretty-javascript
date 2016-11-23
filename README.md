@@ -33,6 +33,20 @@ Add pretty-javascript to your gulp pipeline
   });
 ```
 
+Add a global environment variable to your system to allow PrettyJavascript to fail *on* or *after* lint errors
+
+```sh
+export ESLINT_FAIL_ON_ERROR=true || false
+```
+
+or
+
+```sh
+export ESLINT_FAIL_AFTER_ERROR=true || false
+```
+
+note: if both variables are set to true, PrettyJavascript will always fail *on* error.
+
 Extends coveo rules in your `.eslintrc` file. Example [here](https://github.com/coveo/eslint-config-coveo#usage).
 
 ## Example

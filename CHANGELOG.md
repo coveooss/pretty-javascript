@@ -1,3 +1,25 @@
+<a name="1.1.0"></a>
+# [1.1.0](https://github.com/coveo/pretty-javascript/compare/v1.0.0...v1.1.0) (2016-11-23)
+
+
+### Features
+
+* **eslint fail on/after error:** provides a way to fail if a global variable `ESLINT_FAIL_ON/AFTER_ ([3978413](https://github.com/coveo/pretty-javascript/commit/3978413))
+
+
+### Reverts
+
+* **test:** revert test file ([d4ac8f4](https://github.com/coveo/pretty-javascript/commit/d4ac8f4))
+
+
+### BREAKING CHANGES
+
+* eslint fail on/after error: 2 new variables to enable PrettyJavascript to fail.
+`ESLINT_FAIL_ON_ERROR` or
+`ESLINT_FAIL_AFTER_ERROR`
+
+
+
 <a name="1.0.0"></a>
 # [1.0.0](https://github.com/coveo/pretty-javascript/compare/v0.1.6...v1.0.0) (2016-09-16)
 
